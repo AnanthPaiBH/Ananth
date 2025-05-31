@@ -1,4 +1,24 @@
-HI This is Microdegree course
-Im Practicing Jenkins
-HI This is Poll SCM
-HI This is Webhook
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the project...'
+                sh './build.sh'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                sh 'echo All tests passed!'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the project...'
+                sh 'echo Deployment complete.'
+            }
+        }
+    }
+}
